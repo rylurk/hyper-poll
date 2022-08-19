@@ -6,7 +6,16 @@ const QuestionsPageContent = (props: { id: string }) => {
 
   if (!question.isLoading && !question.data) return <div>Question not found</div>;
 
-  return <div>{question.data?.question}</div>;
+  return (
+    <div className="p-8 flex flex-col">
+      <div className="text-2xl font-bold">{question.data?.question}</div>
+      <div>
+        {(question.data?.options as string[])?.map((option) => (
+          <div key={option}>{option}</div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default function QuestionPage() {
