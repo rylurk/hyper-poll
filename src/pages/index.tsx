@@ -38,11 +38,9 @@ export default function HomePage() {
         <div className="text-2xl font-bold">Questions</div>
         {data.map((question) => {
           return (
-            <Link href={`/question/${question.id}`}>
+            <Link key={question.id} href={`/question/${question.id}`}>
               <a>
-                <div key={question.id} className="my-2">
-                  {question.question}
-                </div>
+                <div className="my-2">{question.question}</div>
               </a>
             </Link>
           );
