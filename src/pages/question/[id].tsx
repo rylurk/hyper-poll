@@ -8,9 +8,10 @@ const QuestionsPageContent = (props: { id: string }) => {
 
   return (
     <div className="p-8 flex flex-col">
-      <div className="text-2xl font-bold">{question.data?.question}</div>
+      {question.data?.isOwner && <div className="bg-blue-300 rounded-md p-2">You made this!</div>}
+      <div className="text-2xl font-bold">{question.data?.question?.question}</div>
       <div>
-        {(question.data?.options as string[])?.map((option) => (
+        {(question.data?.question?.options as string[])?.map((option) => (
           <div key={option}>{option}</div>
         ))}
       </div>
